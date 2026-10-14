@@ -11,20 +11,20 @@
 def makeList(temperatures, threshold, min_days):
     try:
         runs = []
-        start_day = 0
+        start_day = 0 # are there enough comments 🥺 <- win + . is goated btw
         run_length = 0
         for i in range(0, len(temperatures)):
-            if temperatures[i] >= threshold and i > start_day + run_length - 1: # check if the day is hot enough, and if it hasn't been counted yet (by a previous run)
-                start_day = i + 1
-                # print("Set start")
-                j = i # mwahahahah i used j not i
+            if temperatures[i] >= threshold and i > start_day + run_length - 1: # check if the day is hot enough; and if it hasn't been counted yet (by a previous run), -1 because startday is 1 indexed 🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯
+                start_day = i + 1 # since days start at 1 (why??)
+                # print(f"Set start at: {start_day}")
+                j = i # i mean really should be i + 1 to be more efficient but oh well ive already uploaded it now, barely any more ops anyway
                 run_length = 0
                 while temperatures[j] >= threshold:
                     run_length += 1
                     if j == len(temperatures) - 1:
                         break
                     j += 1
-                if run_length >= min_days: # you said if the run_length is == to the min days you silly fool
+                if run_length >= min_days: # you said if the run_length is == to the min days you silly fool, oh and you also said run_length + 1 in this if but then not +1 in the line after lmao 🤯🤯🤯🤯🤯🤯🤯🤯🤯
                     runs.append([start_day, run_length])
                     # print("Added run")
         return runs
